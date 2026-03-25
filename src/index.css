@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-slate-900 min-h-screen relative overflow-x-hidden selection:bg-blue-200 selection:text-blue-900;
+    /* Soft cotton candy mix of light blue and light pink */
+    background: linear-gradient(-45deg, #e0f2fe, #fce7f3, #bae6fd, #fbcfe8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    background-attachment: fixed;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10;
+  }
+
+  /* Bright Glassmorphism */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/90 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)];
+  }
+  
+  .glass-panel {
+    @apply bg-white/60 backdrop-blur-2xl border border-white/80 shadow-[0_12px_40px_rgba(0,0,0,0.08)] rounded-2xl;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-2xl font-bold transition-all duration-300;
+  }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_10px_20px_rgba(37,99,235,0.2)] hover:shadow-[0_15px_30px_rgba(37,99,235,0.4)] hover:-translate-y-1;
+  }
+  
+  .btn-outline {
+    @apply bg-white/80 backdrop-blur-md border border-slate-200 text-slate-800 shadow-sm hover:bg-white hover:shadow-md hover:-translate-y-1;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-extrabold mb-4 tracking-tight text-slate-900 drop-shadow-sm;
+  }
+  
+  .section-subtitle {
+    @apply text-slate-600 text-xl max-w-2xl mx-auto mb-12 font-medium;
+  }
+
+  .badge {
+    @apply px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wider backdrop-blur-md border shadow-sm;
+  }
+  
+  .badge-success {
+    @apply bg-emerald-100/80 text-emerald-700 border-emerald-200;
+  }
+  
+  .badge-purple {
+    @apply bg-purple-100/80 text-purple-700 border-purple-200;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600 font-extrabold;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
