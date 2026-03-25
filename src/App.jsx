@@ -376,14 +376,15 @@ const App = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "EcoPack India", category: "Manufacturing business", desc: "Producing 100% biodegradable packaging alternatives for FMCG brands, completely replacing single-use plastics.", color: "from-blue-100 to-sky-200", icon:"📦" },
-              { name: "KisanLink", category: "Bharat-focused startup", desc: "Direct farm-to-retail supply chain optimization for better farmer margins, serving 500+ farmers.", color: "from-slate-100 to-blue-100", icon:"🌾" },
-              { name: "SaaSync Flow", category: "SaaS startup", desc: "Unified dashboard infrastructure for enterprises to manage remote subscriptions. Over-subscribed pre-seed round.", color: "from-indigo-100 to-blue-200", icon:"💻" }
+              { name: "EcoPack India", category: "Manufacturing business", desc: "Producing 100% biodegradable packaging alternatives for FMCG brands, completely replacing single-use plastics.", img: "https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&q=80&w=800" },
+              { name: "KisanLink", category: "Bharat-focused startup", desc: "Direct farm-to-retail supply chain optimization for better farmer margins, serving 500+ farmers.", img: "https://images.unsplash.com/photo-1592982537447-6f2081d61d15?auto=format&fit=crop&q=80&w=800" },
+              { name: "SaaSync Flow", category: "SaaS startup", desc: "Unified dashboard infrastructure for enterprises to manage remote subscriptions. Over-subscribed pre-seed round.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" }
             ].map((startup, i) => (
               <div key={i} className="glass-card overflow-hidden group p-0 hover:border-blue-300 flex flex-col bg-white">
-                <div className={`h-40 w-full bg-gradient-to-br ${startup.color} flex flex-col items-center justify-center p-6 relative overflow-hidden border-b border-white`}>
-                   <div className="text-5xl opacity-80 mix-blend-multiply drop-shadow-sm mb-2">{startup.icon}</div>
-                   <h3 className="text-2xl font-black text-slate-800 z-10">{startup.name}</h3>
+                <div className="h-56 w-full relative overflow-hidden border-b border-white">
+                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent z-10 w-full h-full"></div>
+                   <img src={startup.img} alt={startup.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                   <h3 className="text-2xl font-black text-white z-20 absolute bottom-4 left-6 drop-shadow-md">{startup.name}</h3>
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
                   <p className="text-xs font-black text-blue-600 mb-4 uppercase tracking-wider bg-blue-50 border border-blue-100 self-start px-2 py-1 rounded inline-block">{startup.category}</p>
@@ -420,12 +421,13 @@ const App = () => {
          <div className="container">
             <div className="max-w-4xl mx-auto glass-card p-10 lg:p-14 bg-white border border-slate-200 shadow-sm hover:shadow-lg">
                <div className="flex flex-col md:flex-row items-center gap-10">
-                   <div className="w-full md:w-1/3 flex justify-center">
-                       <div className="w-40 h-40 rounded-3xl bg-blue-600 p-2 shadow-xl rotate-3 hover:rotate-0 transition-transform">
-                           <div className="w-full h-full border-2 border-white/50 rounded-2xl flex flex-col items-center justify-center text-white">
-                                <span className="text-2xl font-black italic">Karo</span>
-                                <span className="text-lg font-bold tracking-widest text-blue-200">Startup</span>
-                           </div>
+                   <div className="w-full md:w-1/3 flex justify-center py-6">
+                       <div className="relative">
+                          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" className="w-64 h-64 object-cover rounded-3xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 border-4 border-white" alt="Founders networking event" />
+                          <div className="absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl border border-slate-100 rotate-[-5deg]">
+                              <p className="font-black text-slate-900 text-xl text-center">Karo<span className="text-blue-600">Startup</span></p>
+                              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center mt-1">Community</p>
+                          </div>
                        </div>
                    </div>
                    <div className="w-full md:w-2/3 text-center md:text-left">
